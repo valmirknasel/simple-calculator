@@ -2,14 +2,14 @@
 /shelf/
 *.iml
 /local.properties
-.idea/
-.idea/caches/
-.idea/libraries/
+/.idea/
+/.idea/caches/
+/.idea/libraries/
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
-.DS_Store/
+/.DS_Store/
 /build/
 /captures/
 .externalNativeBuild
@@ -44,9 +44,9 @@
 hs_err_pid*
 
 ### Gradle ###
-.gradle/
-build/
-gradle/
+/.gradle/
+/build/
+/gradle/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -55,7 +55,7 @@ gradle-app.setting
 !gradle-wrapper.jar
 
 # Cache of project
-.gradletasknamecache
+/.gradletasknamecache
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
