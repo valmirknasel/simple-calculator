@@ -2,7 +2,7 @@
 /shelf/
 *.iml
 /local.properties
-/.idea/
+.idea/
 /.idea/caches/
 /.idea/libraries/
 /.idea/modules.xml
