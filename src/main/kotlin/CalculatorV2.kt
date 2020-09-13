@@ -7,7 +7,7 @@ enum class MathematicalOperator(val op: Char) {
     DIVIDE('/')
 }
 
-fun checkOperator(op: MathematicalOperator): (Double, Double) -> Double {
+fun calculate(op: MathematicalOperator): (Double, Double) -> Double {
     return when (op) {
         MathematicalOperator.PLUS -> { x, y -> x + y }
         MathematicalOperator.MINUS -> { x, y -> x - y }
@@ -34,7 +34,7 @@ fun readUserInputs(): MutableList<Any> {
 
 @Throws(IllegalArgumentException::class)
 fun readOperator(): MathematicalOperator {
-    println("Inform the operator:")
+    println("Inform the operator (+ - * /):")
     var operator = readLine().toString()
     while (isNotValidOperator(operator)) {
         println("Invalid Operator! Please inform a valid operator (+ - * /)")
@@ -83,18 +83,29 @@ fun isNotValidOperand(s: String): Boolean {
         return true
     }
     return try {
-        s.toInt()
+        s.toDouble()
         false
     } catch (e: NumberFormatException) {
         println("Invalid operand $s! Please use only positive integer numbers")
         true
     }
-
 }
 
 fun main() {
-    val op = readUserInputs()
-
-    TODO()
-
+    var calculate = true
+    var choice: String
+    while (calculate) {
+        val userInputs = readUserInputs()
+        val operator = calculate(userInputs.get(0) as MathematicalOperator)
+        val operandOne = userInputs[1].toString().toDouble()
+        val operandTwo = userInputs[2].toString().toDouble()
+        println("Result:" + operator.invoke(operandOne, operandTwo))
+        println()
+        println("Make new calculation? (y/n)")
+        choice = readLine().toString()
+        calculate = when(choice.toUpperCase()) {
+            "Y" -> true
+            else -> false
+        }
+    }
 }
